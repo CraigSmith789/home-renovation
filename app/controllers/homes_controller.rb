@@ -8,6 +8,7 @@ class HomesController < ApplicationController
     @home = Home.new(home_params)
     @home.save
     redirect_to home_path(@home)
+  end
 
     def new
       @home = Home.new

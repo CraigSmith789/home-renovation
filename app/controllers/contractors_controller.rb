@@ -8,6 +8,7 @@ class ContractorsController < ApplicationController
     @contractor = Contractor.new(contractor_params)
     @contractor.save
     redirect_to contractor_path(@contractor)
+  end
 
     def new
       @contractor = Contractor.new

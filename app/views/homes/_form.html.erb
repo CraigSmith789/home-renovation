@@ -1,0 +1,15 @@
+
+<%= form_for @home do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :year_built %>
+  <%= f.text_field :yesr_built %>
+  <%= f.label :SF %>
+  <%= f.text_field :sf %>
+  <%= f.label :beds %>
+  <%= f.text_field :beds %>
+  <%= f.label :baths %>
+  <%= f.text_field :baths %>
+  
+  <%= f.submit "Create Home"%>
+<% end %>
