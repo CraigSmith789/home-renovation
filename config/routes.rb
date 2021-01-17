@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :homes
   resources :contractors
   resources :tasks
+  resources :projects
   resources :users
 end
