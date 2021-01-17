@@ -22,9 +22,9 @@ class ContractorsController < ApplicationController
     end
 
     def update
-      @contractor = C0ntractor.find_by(id: params[:id])
+      @contractor = Contractor.find_by(id: params[:id])
       @contractor.update(attraction_params)
-      redirect_to contractor_path(contractor)
+      redirect_to contractor_path(@contractor)
     end
 
     def destroy
