@@ -1,1 +1,10 @@
 <h1>This is Contractors index</h1>
+
+<% @contractors.each do |contractor| %>
+      <%= contractor.name %>
+      <%= contractor.email %>
+      <%= link_to "View #{contractor.name}", contractor_path(home) %>
+  <% end %>
+      
+
+       

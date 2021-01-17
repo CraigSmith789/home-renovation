@@ -1,1 +1,11 @@
 <h1>This is Homes index</h1>
+
+<% @homes.each do |home| %>
+      Name: <%= home.name %>
+      Year Built: <%= home.year_built %>
+      SF: <%= home.sf %>
+      Beds: <%= home.beds %>
+      Baths: <%= home.baths %>
+      <%= link_to "View #{home.name}", home_path(home) %>
+
+  <% end %>

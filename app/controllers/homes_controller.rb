@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @home = Home.all
+    @homes = Home.all
   end
 
   def create
@@ -19,7 +19,7 @@ class HomesController < ApplicationController
     end
 
     def show
-      @chome = Home.find(params[:id])
+      @home = Home.find(params[:id])
     end
 
     def update
@@ -37,7 +37,7 @@ class HomesController < ApplicationController
 
     private
 
-  def contractor_params
+  def home_params
     params.require(:home).permit(:name, :year_built, :sf, :beds, :baths)
   end
 

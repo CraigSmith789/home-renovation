@@ -1,7 +1,7 @@
 class ContractorsController < ApplicationController
 
   def index
-    @contractor = Contractor.all
+    @contractors = Contractor.all
   end
 
   def create
