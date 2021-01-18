@@ -6,4 +6,6 @@ Year Built: <%= @home.year_built %><br>
 SF: <%= @home.sf %><br>
 Bedrooms: <%= @home.beds %><br>
 Baths: <%= @home.baths %><br>
-<%= f.submit "Edit"%>  <%= f.submit "Delete"%>
+<%= link_to "Edit", edit_home_path(@home)%>  
+<%= link_to "Delete", delete_home_path(@home) %>
+<%# <%= link_to "Add Projects to #{@home.name}", project_path(@project) %> 

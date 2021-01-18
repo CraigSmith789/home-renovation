@@ -1,3 +1,7 @@
 <h1>This is Tasks show</h1>
 
 <h3><%= @task.name %></h3><br>
+
+
+<%= link_to "Edit", edit_task_path(@contractor)%>  
+<%= link_to "Delete", delete_task_path(@contractor) %>

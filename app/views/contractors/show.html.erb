@@ -4,9 +4,5 @@
 
 Name: <%= @contractor.name %><br>
 Email: <%= @contractor.email %><br>
-<%= button_to "Delete",
-          :back,
-          method: :delete,
-          :params :id,
-          confirm: "Are you sure you'd like to delete this contractor?",
-          disable_with: "Deleting..."%>
+<%= link_to "Edit", edit_contractor_path(@contractor)%>  
+<%= link_to "Delete", delete_contractor_path(@contractor) %>

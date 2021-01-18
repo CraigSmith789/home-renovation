@@ -28,6 +28,11 @@ class HomesController < ApplicationController
       redirect_to home_path(@home)
     end
 
+    def delete
+      @home = Home.find_by(id: params[:id])
+    end
+
+
     def destroy
       @home = Home.find(params[:id])
       @home.destroy

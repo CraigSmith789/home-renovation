@@ -28,6 +28,10 @@ class ContractorsController < ApplicationController
       redirect_to contractor_path(@contractor)
     end
 
+    def delete
+      @contractor = Contractor.find(params[:id])
+    end
+
     def destroy
       @contractor = Contractor.find(params[:id])
       @contractor.destroy

@@ -5,4 +5,29 @@ Rails.application.routes.draw do
   resources :tasks
   resources :projects
   resources :users
+
+  resources :homes do
+    member do
+      get :delete 
+    end
+  end
+
+  resources :contractors do
+    member do
+      get :delete 
+    end
+  end
+
+  resources :projects do
+    member do
+      get :delete 
+    end
+  end
+
+  resources :tasks do
+    member do
+      get :delete 
+    end
+  end
+
 end
