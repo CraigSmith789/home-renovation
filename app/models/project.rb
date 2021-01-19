@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :homes
+  belongs_to :home
   has_many :contractors
+
 end

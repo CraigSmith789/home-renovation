@@ -1,0 +1,7 @@
+
+
+<% @projects.each do |project| %>
+      <%= project.name %>
+      
+      <%= link_to "View #{project.name}", project_path(project) %><br>
+  <% end %>

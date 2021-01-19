@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_163803) do
+ActiveRecord::Schema.define(version: 2021_01_19_182832) do
 
   create_table "contractors", force: :cascade do |t|
     t.string "name"
@@ -32,18 +32,24 @@ ActiveRecord::Schema.define(version: 2021_01_18_163803) do
     t.integer "baths"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_homes_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "home_id"
+    t.index ["home_id"], name: "index_projects_on_home_id"
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "contractor_id"
+    t.index ["contractor_id"], name: "index_tasks_on_contractor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +59,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_163803) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "homes", "users"
+  add_foreign_key "projects", "homes"
+  add_foreign_key "tasks", "contractors"
 end

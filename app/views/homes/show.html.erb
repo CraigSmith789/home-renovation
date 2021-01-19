@@ -8,4 +8,4 @@ Bedrooms: <%= @home.beds %><br>
 Baths: <%= @home.baths %><br>
 <%= link_to "Edit", edit_home_path(@home)%>  
 <%= link_to "Delete", delete_home_path(@home) %>
-<%# <%= link_to "Add Projects to #{@home.name}", project_path(@project) %> 
+<%= link_to "Add Projects to #{@home.name}", new_project_path%> 

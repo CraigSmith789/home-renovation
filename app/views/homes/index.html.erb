@@ -1,11 +1,11 @@
-<h1>This is Homes index</h1>
+<h3>List Of Current Home Projects</h3>
 
 <% @homes.each do |home| %>
-      Name: <%= home.name %>
-      Year Built: <%= home.year_built %>
-      SF: <%= home.sf %>
-      Beds: <%= home.beds %>
-      Baths: <%= home.baths %>
-      <%= link_to "View #{home.name}", home_path(home) %>
+      <b>Name: </b> <%= home.name %>
+      <b>Year Built: </b> <%= home.year_built %>
+      <b>SF: </b> <%= home.sf %>
+      <b>Beds: </b> <%= home.beds %>
+      <b>Baths: </b> <%= home.baths %>
+      <%= link_to "View #{home.name}", home_path(home) %><br>
 
   <% end %>

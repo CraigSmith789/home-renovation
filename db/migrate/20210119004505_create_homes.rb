@@ -6,7 +6,6 @@ class CreateHomes < ActiveRecord::Migration[6.1]
       t.integer :sf
       t.integer :beds
       t.integer :baths
-
       t.timestamps
     end
   end

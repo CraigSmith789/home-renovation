@@ -1,15 +1,18 @@
 
 <%= form_for @home do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
   <%= f.label :year_built %>
-  <%= f.text_field :year_built %>
+  <%= f.text_field :year_built %><br>
   <%= f.label :SF %>
-  <%= f.text_field :sf %>
+  <%= f.text_field :sf %><br>
   <%= f.label :beds %>
-  <%= f.text_field :beds %>
+  <%= f.text_field :beds %><br>
   <%= f.label :baths %>
   <%= f.text_field :baths %>
   
   <%= f.submit "Submit Home", class: 'button'%>
+  <%= f.submit "Cancel", class: 'button'%>
+  
+
 <% end %>
