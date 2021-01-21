@@ -1,13 +1,22 @@
 class HomesController < ApplicationController
+  #skip_before_action :verified_user, only: [:new, :create]
 
   def index
     @homes = Home.all
   end
 
+  def new
+    @home = Home.new
+  end
+
   def create
     @home = Home.new(home_params)
-    @home.save
-    redirect_to home_path(@home)
+    @home.user_id = current_user.id
+      if @home.save
+      redirect_to home_path(@home)
+      else 
+        render ('new')
+      end
   end
 
     def new
@@ -42,8 +51,10 @@ class HomesController < ApplicationController
 
     private
 
-  def home_params
-    params.require(:home).permit(:name, :year_built, :sf, :beds, :baths, :user_id)
-  end
+    
+
+    def home_params
+      params.require(:home).permit(:name, :year_built, :sf, :beds, :baths)
+    end
 
 end

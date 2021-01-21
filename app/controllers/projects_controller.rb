@@ -1,17 +1,42 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    if params[:home_id]
+      @home = Home.find_by(id: params[:home_id])
+      if @home.nil?
+        redirect_to homes_path, alert: "Home not found"
+      else
+        @projects = @home.projects
+      end
+    else
+      @projects = Project.all
+    end
   end
 
   def create
+
     @project = Project.new(project_params)
-    @project.save
-    redirect_to project_path(@project)
+       if params[:home_id] 
+           @home = Home.find(params[:home_id])
+           @project.home = @home
+       end
+  
+      if @project.save 
+          redirect_to home_projects_path
+      else
+          render :new
+      end
   end
 
     def new
-      @project = Project.new
+      if params[:home_id] && @home = Home.find(params[:home_id])
+         @project = Project.new(home_id: params[:home_id])
+        
+    else
+        @project = Project.new
+        
+        @project.build_home
     end
+  end
 
     def edit 
       @project = Project.find(params[:id])
@@ -37,6 +62,6 @@ class ProjectsController < ApplicationController
     private
 
   def project_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name, :home_id, :contractor_id)
   end
 end

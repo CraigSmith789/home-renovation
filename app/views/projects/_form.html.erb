@@ -1,15 +1,7 @@
 
-<%# Add projects to <%=@home.name%>
+
 <%= form_for @project do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-    <%= f.submit "Submit Project", class: 'button'%>
+    <%= f.submit "Submit Project", class: 'button', formaction: home_projects_path%> <%= f.submit "Cancel", class: 'button'%>
 <% end %>

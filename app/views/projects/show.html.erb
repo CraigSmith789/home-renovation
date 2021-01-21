@@ -1,5 +1,6 @@
-<h1>This is Projects show</h1>
 
-<h3><%= @project.name %></h3><br>
+
+<h3>Please select a Contractor for <%= @project.name %></h3><br>
 
 <%= collection_select(:contractor, :name, Contractor.all, :name, :name, prompt: "Please select your Contractor from this dropdown") %>
+<%= link_to "Add Contractor to #{@project.name}", project_contractors_path(@project)%> 
