@@ -6,8 +6,18 @@ class ContractorsController < ApplicationController
 
   def create
     @contractor = Contractor.new(contractor_params)
-    @contractor.save
-    redirect_to contractor_path(@contractor)
+       if params[:project_id]
+        @project = Project.find_by(id: params[:project_id]) 
+        @contractor = Contractor.new
+        @project.contractor_id = @contractor.id
+        @project.save
+       end
+  
+      if @contractor.save 
+          redirect_to project_contractors_path(@project)
+      else
+          render :new
+      end
   end
 
     def new
@@ -42,7 +52,7 @@ class ContractorsController < ApplicationController
     private
 
   def contractor_params
-    params.require(:contractor).permit(:name, :email)
+    params.require(:contractor).permit(:name, :email, :project_id)
   end
 
 end
