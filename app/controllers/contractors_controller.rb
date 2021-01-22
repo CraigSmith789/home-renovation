@@ -1,7 +1,17 @@
 class ContractorsController < ApplicationController
 
   def index
-    @contractors = Contractor.all
+    # TODO: this may need to be fixed too
+    if params[:project_id]
+      @project = Project.find_by(id: params[:project_id])
+      if @project.nil?
+        redirect_to projects_path, alert: "Project not found"
+      else
+        @contractors = @project.contractors
+      end
+    else
+      @contractors = Contractor.all
+    end
   end
 
   def create
@@ -21,7 +31,11 @@ class ContractorsController < ApplicationController
   end
 
     def new
-      @contractor = Contractor.new
+      # TODO: fix this method. It makes no sense
+       @contractor = Contractor.new
+       
+       @contractor.build_project
+   
     end
 
     def edit 
@@ -30,6 +44,7 @@ class ContractorsController < ApplicationController
 
     def show
       @contractor = Contractor.find(params[:id])
+      @task = Task.new
     end
 
     def update

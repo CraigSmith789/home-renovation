@@ -1,4 +1,4 @@
-<h1>This is Contractors show</h1>
+
 
 <h3><%= @contractor.name %></h3><br>
 
@@ -6,3 +6,12 @@ Name: <%= @contractor.name %><br>
 Email: <%= @contractor.email %><br>
 <%= link_to "Edit", edit_contractor_path(@contractor)%>  
 <%= link_to "Delete", delete_contractor_path(@contractor) %>
+
+<h3>Add a Task to <%=@contractor.name%> </h3><br>
+<%= form_for(@task) do |f| %>
+  <% f.hidden_field :contractor_id, :value => @contractor.id %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+ 
+  <%= f.submit "Submit Task", class: 'button', formaction: contractor_tasks_path(@contractor, @task.name)%>
+<% end %>

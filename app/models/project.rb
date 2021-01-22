@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :home
-  belongs_to :contractors
-  has_many :tasks, through: :contractors
+  belongs_to :contractor
+  has_many :tasks, through: :contractor
 
 end

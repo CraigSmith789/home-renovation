@@ -1,7 +1,16 @@
 
 
-<%= form_for @project do |f| %>
-  <%= f.label :name %>
+<%= form_for([@home, @project]) do |f| %>
+  <%= f.label "Project Name:" %>
   <%= f.text_field :name %><br>
-    <%= f.submit "Submit Project", class: 'button', formaction: home_projects_path%> <%= f.submit "Cancel", class: 'button'%>
-<% end %>
+  <% f.hidden_field :home_id %>
+
+    <%= f.fields_for :contractor do |c| %>
+    <br>
+    Please Select a Contractor: <%= collection_select(:project, :contractor_id, Contractor.all, :id, :name, prompt: "Please select your Contractor from this dropdown") %><br>
+    
+      <% end %>
+      
+      
+    <%= f.submit "Submit Project", class: 'button'%> <%= f.submit "Cancel", class: 'button'%>
+  <% end %>

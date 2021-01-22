@@ -5,8 +5,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    if params[:contractor_id] 
+      @task.contractor_id = params[:contractor_id]
+  end
     @task.save
-    redirect_to task_path(@task)
+    redirect_to contractor_tasks_path
   end
 
     def new
@@ -37,6 +40,6 @@ class TasksController < ApplicationController
     private
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name, :contractor_id)
   end
 end

@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :contractors, only: [:new, :index, :create]
   end
 
+  resources :contractors do 
+    resources :tasks, only: [:new, :index, :create]
+  end
+
   resources :homes do
     member do
       get :delete 
