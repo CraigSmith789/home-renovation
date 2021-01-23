@@ -5,5 +5,6 @@
 <b>Project Home:</b> <%= link_to @project.home.name,home_path%><br>
 <b>Project Contractor:</b>  <%= link_to @project.contractor.name, contractor_path(:id => @project.contractor.id)%><br>
 <br>
-<%= render 'form' %>
+<%= button_to "Update Project", edit_project_path, class: 'button', method:'get' %>
+
 
