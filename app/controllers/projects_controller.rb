@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
         @projects = @home.projects
         
     else 
-         @projects = Project.all
+      @projects = Project.joins(:home).where({"homes.user_id" => current_user.id})
     end
   end
 
