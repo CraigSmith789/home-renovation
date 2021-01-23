@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   #skip_before_action :verified_user, only: [:new, :create]
+  before_action :redirect_if_not_logged_in
 
   def index
       @user = current_user

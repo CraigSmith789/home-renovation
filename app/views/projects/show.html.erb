@@ -5,6 +5,11 @@
 <b>Project Home:</b> <%= link_to @project.home.name,home_path%><br>
 <b>Project Contractor:</b>  <%= link_to @project.contractor.name, contractor_path(:id => @project.contractor.id)%><br>
 <br>
+<div class="button-row">
+  <%= button_to "Edit", edit_project_path(@project), :method => :get, class:'button'%>  
+  <%= button_to "Delete", project_path(@project), :method => :delete, class:'button' %>
+  <%= button_to "Cancel", projects_path, :method => :get, class: 'button'%>
+</div>
 <%= button_to "Update Project", edit_project_path, class: 'button', method:'get' %>
 
 

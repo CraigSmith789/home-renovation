@@ -1,4 +1,5 @@
 class ContractorsController < ApplicationController
+  before_action :redirect_if_not_logged_in
 
   def index
     # TODO: this may need to be fixed too
@@ -16,15 +17,17 @@ class ContractorsController < ApplicationController
 
   def create
     @contractor = Contractor.new(contractor_params)
-       if params[:project_id]
-        @project = Project.find_by(id: params[:project_id]) 
-        @contractor = Contractor.new
-        @project.contractor_id = @contractor.id
-        @project.save
-       end
+      if params[:project_id]
+      @project = Project.find_by(id: params[:project_id]) 
+      @contractor = Contractor.new
+      @project.contractor_id = @contractor.id
+      @project.save
+      redirect_to project_contractors_path(@project)
+       
   
-      if @contractor.save 
-          redirect_to project_contractors_path(@project)
+      elsif @contractor = Contractor.new(contractor_params)
+         @contractor.save 
+         redirect_to contractor_path(@contractor)
       else
           render :new
       end
@@ -34,7 +37,7 @@ class ContractorsController < ApplicationController
       # TODO: fix this method. It makes no sense
        @contractor = Contractor.new
        
-       @contractor.build_project
+       #@contractor.build_project
    
     end
 
@@ -49,12 +52,13 @@ class ContractorsController < ApplicationController
 
     def update
       @contractor = Contractor.find_by(id: params[:id])
-      @contractor.update(attraction_params)
+      @contractor.update(contractor_params)
       redirect_to contractor_path(@contractor)
     end
 
     def delete
       @contractor = Contractor.find(params[:id])
+      @contractor.destroy
     end
 
     def destroy

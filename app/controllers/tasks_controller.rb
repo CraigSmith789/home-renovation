@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :redirect_if_not_logged_in
   def index
     if params[:contractor_id] && @contractor = Contractor.find(params[:contractor_id])
       @tasks = @contractor.tasks

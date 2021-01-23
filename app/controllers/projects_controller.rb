@@ -1,18 +1,5 @@
 class ProjectsController < ApplicationController
-  # def index
-  #   if params[:home_id]
-  #     @home = Home.find_by(id: params[:home_id])
-  #   end
-      
-  #     if @home.nil?
-  #       redirect_to homes_path, alert: "Home not found"
-  #     else
-  #       @projects = @home.projects
-  #     end
-  #   else
-  #     @projects = Project.all
-  #   end
-  # end
+  before_action :redirect_if_not_logged_in
 
   
 

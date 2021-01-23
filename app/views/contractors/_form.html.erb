@@ -6,5 +6,7 @@
   <%= f.text_field :name %>
   <%= f.label :email %>
   <%= f.text_field :email %>
-  <%= f.submit "Submit Contractor", class: 'button', formaction: project_contractors_path%>
+  <%# <%= f.submit "Submit Contractor", class: 'button', formaction: contractor_path%> 
+  <%= f.submit "Submit Contractor", class: 'button'%>
+  <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%>
 <% end %>
