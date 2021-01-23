@@ -2,8 +2,12 @@ class HomesController < ApplicationController
   #skip_before_action :verified_user, only: [:new, :create]
 
   def index
-    @homes = Home.all
+      @user = current_user
+      @homes = @user.homes
+      
+    
   end
+  
 
   def new
     @home = Home.new

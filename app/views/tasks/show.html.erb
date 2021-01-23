@@ -1,7 +1,9 @@
-<h1>This is Tasks show</h1>
-
-<h3><%= @task.name %></h3><br>
 
 
-<%= link_to "Edit", edit_task_path(@task)%>  
-<%= link_to "Delete", delete_task_path(@task) %>
+<h3>Task: <%= @task.name %></h3><br>
+<b>Contractor: </b> <%=@task.contractor.name%><br>
+
+<div class="button-row">
+<%= button_to "Edit", edit_task_path(@task), :method => :get, class: 'button' %>  
+<%= button_to "Delete", delete_task_path(@task), :method => :get, class: 'button' %>
+</div>

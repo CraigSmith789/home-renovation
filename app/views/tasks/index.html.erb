@@ -1,7 +1,9 @@
 
-
+<h3> Tasks for <%=@contractor.name%></h3>
 <% @tasks.each do |task| %>
+<div class=".long-table-entry">      
       <%= task.name %>
-      
       <%= link_to "View #{task.name}", task_path(task) %><br>
+</div>
+<hr>
   <% end %>

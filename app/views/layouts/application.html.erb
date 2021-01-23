@@ -15,14 +15,14 @@
       <div class="container">
         <div class="navbar-header">
         <div class="nav-link-wrapper">
-          <div class="nav-link"><a class="navbar-brand" href="/">Home</a></div>
+          <div class="nav-link"><%= button_to "Home", '/', class: 'button', method:'get' %></div>
           <% if !current_user %>
-            <div class="nav-link"><a  href="<%= new_user_path %>"/>Sign Up</a></div>
-            <div class="nav-link"><%= link_to "Log in", signin_path %></div>
+            <div class="nav-link"><%= button_to "Sign Up", new_user_path, class: 'button', method:'get' %></div>
+            <div class="nav-link"><%= button_to "Log in", signin_path, class: 'button', method:'get' %></div>
           <% end %>
           <% if current_user %>
-              <div class="nav-link"><%= link_to "#{current_user.name}'s profile", user_path(current_user)%></div>
-          <div class="nav-link"> <%= link_to "Log Out", session_path, method:'delete' %></div>
+              <div class="nav-link"><%= button_to "#{current_user.name}'s profile", user_path(current_user), class: 'button', method:'get' %></div>
+          <div class="nav-link"> <%= button_to "Log Out", session_path, class: 'button', method:'delete' %></div>
           <% end %>
         </div>
 

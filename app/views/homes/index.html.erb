@@ -1,11 +1,15 @@
-<h3>List Of Current Home Projects</h3>
+<h3>List Of Current Homes for <%=current_user.name%></h3>
 
 <% @homes.each do |home| %>
+<div class="long-table-entry">
       <b>Name: </b> <%= home.name %>
       <b>Year Built: </b> <%= home.year_built %>
       <b>SF: </b> <%= home.sf %>
       <b>Beds: </b> <%= home.beds %>
       <b>Baths: </b> <%= home.baths %>
       <%= link_to "View #{home.name}", home_path(home) %><br>
-
+</div>
+<hr>
+      
   <% end %>
+  <%= button_to "New Home", new_home_path, :method => :get, class:'button'%>

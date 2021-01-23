@@ -29,6 +29,8 @@ class ProjectsController < ApplicationController
   def show
     
     @project = Project.find(params[:id])
+    #@contractor = Contractor.find(params[:contractor_id])
+    @contractor = @project.contractor.id
   end
 
   def new

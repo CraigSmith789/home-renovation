@@ -1,6 +1,11 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    if params[:contractor_id] && @contractor = Contractor.find(params[:contractor_id])
+      @tasks = @contractor.tasks
+      
+    else 
+      @tasks = Task.all
+    end
   end
 
   def create

@@ -45,11 +45,19 @@ body{
     line-height: 20px;
     border-radius: 4px;
     height: 34px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.button:hover{
+  background-color: #ccebff;
+  color: var(--blue);
 }
 
 .navbar-fixed-top{
   background-color: #0079c2;
-    height: 40px;
+  height: 50px;
 }
 
 .nav-link{
@@ -62,4 +70,13 @@ body{
 
 .nav-link-wrapper{
   display: flex;
+}
+
+.button-row{
+  display: flex;
+}
+
+.long-table-entry{
+  padding-top:6px;
+  padding-bottom: 6px;
 }

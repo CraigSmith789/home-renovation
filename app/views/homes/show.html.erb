@@ -1,11 +1,15 @@
-<h1>This is Homes show</h1>
+
 <h3><%= @home.name %></h3><br>
 
-Name: <%= @home.name %><br>
-Year Built: <%= @home.year_built %><br>
-SF: <%= @home.sf %><br>
-Bedrooms: <%= @home.beds %><br>
-Baths: <%= @home.baths %><br>
-<%= link_to "Edit", edit_home_path(@home)%>  
-<%= link_to "Delete", delete_home_path(@home) %>
-<%= link_to "Add Projects to #{@home.name}", new_home_project_path(@home)%> 
+<b>Name:</b> <%= @home.name %><br>
+<b>Year Built:</b> <%= @home.year_built %><br>
+<b>SF:</b> <%= @home.sf %><br>
+<b>Bedrooms:</b> <%= @home.beds %><br>
+<b>Baths:</b> <%= @home.baths %><br>
+
+<div class="button-row">
+  <%= button_to "Edit", edit_home_path(@home), :method => :get, class:'button'%>  
+  <%= button_to "Delete", delete_home_path(@home), :method => :get, class:'button' %>
+  <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%>
+</div>
+<%= button_to "Add Projects to #{@home.name}", new_home_project_path(@home), :method => :get, class:'button'%> 

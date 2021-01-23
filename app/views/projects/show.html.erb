@@ -1,9 +1,9 @@
 
 
-<h3>Here is some project info for <%=@project.name%> </h3><br>
+<h3>Information for:  <%=@project.name%> </h3><br>
 
 <b>Project Home:</b> <%= link_to @project.home.name,home_path%><br>
 <b>Project Contractor:</b>  <%= link_to @project.contractor.name, contractor_path(:id => @project.contractor.id)%><br>
 <br>
-<%= link_to "Add a New Contractor to #{@project.name}"%> 
+<%= render 'form' %>
 
