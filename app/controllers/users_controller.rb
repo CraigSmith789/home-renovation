@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
     if (user = User.create(user_params))
       session[:user_id] = user.id
       redirect_to homes_path
