@@ -1,11 +1,11 @@
 
-
+<%= render partial: "layouts/error", locals: {object: @contractor}  %>
 
 <%= form_for @contractor do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, required: true %>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, required: true %>
   <%# <%= f.submit "Submit Contractor", class: 'button', formaction: contractor_path%> 
   <%= f.submit "Submit Contractor", class: 'button'%>
   <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%>

@@ -34,6 +34,13 @@ class HomesController < ApplicationController
 
     def show
       @home = Home.find(params[:id])
+      if @home.user_id != current_user.id
+        @authorized = false
+      else
+        @authorized = true
+      
+      end
+      
     end
 
     def update

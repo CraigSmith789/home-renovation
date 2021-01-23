@@ -1,5 +1,5 @@
 
-
+<%= render partial: "layouts/error", locals: {object: @project}  %>
 <%= form_for([@home, @project]) do |f| %>
   <%= f.label "Project Name:" %>
   <%= f.text_field :name %><br>

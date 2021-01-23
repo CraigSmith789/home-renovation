@@ -36,10 +36,10 @@ class TasksController < ApplicationController
       redirect_to task_path(@task)
     end
 
-    def destroy
+    def delete
       @task = Task.find(params[:id])
       @task.destroy
-      redirect_to taskss_path
+      redirect_to homes_path
     end
 
 

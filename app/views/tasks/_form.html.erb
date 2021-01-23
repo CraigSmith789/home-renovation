@@ -1,6 +1,7 @@
+<%= render partial: "layouts/error", locals: {object: @task}  %>
 <%= form_for @task do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, required: true %>
  
   <%= f.submit "Submit Task", class: 'button'%>
 <% end %>

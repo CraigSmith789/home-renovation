@@ -1,15 +1,20 @@
+<% if @authorized%>
+  <h3><%= @home.name %></h3><br>
 
-<h3><%= @home.name %></h3><br>
+  <b>Name:</b> <%= @home.name %><br>
+  <b>Year Built:</b> <%= @home.year_built %><br>
+  <b>SF:</b> <%= @home.sf %><br>
+  <b>Bedrooms:</b> <%= @home.beds %><br>
+  <b>Baths:</b> <%= @home.baths %><br>
 
-<b>Name:</b> <%= @home.name %><br>
-<b>Year Built:</b> <%= @home.year_built %><br>
-<b>SF:</b> <%= @home.sf %><br>
-<b>Bedrooms:</b> <%= @home.beds %><br>
-<b>Baths:</b> <%= @home.baths %><br>
+  <div class="button-row">
+    <%= button_to "Edit", edit_home_path(@home), :method => :get, class:'button'%>  
+    <%= button_to "Delete", home_path(@home), :method => :delete, class:'button' %>
+    <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%>
+  </div>
+  <%= button_to "Add Projects to #{@home.name}", new_home_project_path(@home), :method => :get, class:'button'%> 
+<% end%>
 
-<div class="button-row">
-  <%= button_to "Edit", edit_home_path(@home), :method => :get, class:'button'%>  
-  <%= button_to "Delete", home_path(@home), :method => :delete, class:'button' %>
-  <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%>
-</div>
-<%= button_to "Add Projects to #{@home.name}", new_home_project_path(@home), :method => :get, class:'button'%> 
+<% if !@authorized%>
+  <h3>Unauthorized</h3>
+<% end%>
