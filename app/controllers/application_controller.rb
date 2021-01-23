@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   include ApplicationHelper 
   protect_from_forgery with: :exception
   before_action :verified_user
@@ -20,6 +21,9 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_not_logged_in
     redirect_to '/signin' if !logged_in?
+end
+def render_404
+  render 'public/404', :status => '404'
 end
 
 

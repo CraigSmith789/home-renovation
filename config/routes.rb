@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :tasks
   resources :projects
   resources :users
+
     
+  get '/lead-paint' => 'homes#index', year_built: 'lead_paint_risk', as: :lead_paint_risk
+
   root 'static#home'
   get '/signin', to: 'session#new', as: 'signin'
   post '/session', to: 'session#create', as: 'session'

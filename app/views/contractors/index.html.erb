@@ -1,10 +1,6 @@
-<h1>This is Contractors index</h1>
-
-<% @contractors.each do |contractor| %>
-      <b>Name:</b>  <%= contractor.name %>
-      <b>Email:</b>  <%= contractor.email %>
-      <%= link_to "View #{contractor.name}", contractor_path(contractor) %><br>
-  <% end %>
+<h2>Contractors</h2>
+ <%= render partial: "contractor", collection: @contractors %>
+  
       
 
        

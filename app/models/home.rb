@@ -9,4 +9,10 @@ class Home < ApplicationRecord
   validates :sf, presence: true, numericality: true
   validates :beds, presence: true, numericality: true
   validates :baths, presence: true, numericality: true
+  scope :lead_paint_risk, -> { where("year_built < 1978") }
+
+  def self.order_by_date
+    self.order(year_built: :desc) 
+end
+
 end

@@ -4,7 +4,7 @@ class HomesController < ApplicationController
 
   def index
       @user = current_user
-      @homes = @user.homes
+      @homes = @user.homes.order_by_date
       
     
   end
@@ -59,6 +59,11 @@ class HomesController < ApplicationController
       @home.destroy
       redirect_to homes_path
     end
+
+    def lead_paint
+      Home.all.lead_paint_risk
+    end
+
 
 
     private

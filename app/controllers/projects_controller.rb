@@ -73,7 +73,7 @@ end
     private
 
   def project_params
-    params.require(:project).permit(:name, :home_id, :contractor_id)
+    params.require(:project).permit(:name, :home_id, contractors_attributes: [:name,:id] )
   end
 end
 

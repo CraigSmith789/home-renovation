@@ -1,7 +1,4 @@
-
-
 <h3>Information for:  <%=@project.name%> </h3><br>
-
 <b>Project Home:</b> <%= link_to @project.home.name,home_path%><br>
 <b>Project Contractor:</b>  <%= link_to @project.contractor.name, contractor_path(:id => @project.contractor.id)%><br>
 <br>
@@ -10,6 +7,6 @@
   <%= button_to "Delete", project_path(@project), :method => :delete, class:'button' %>
   <%= button_to "Cancel", projects_path, :method => :get, class: 'button'%>
 </div>
-<%= button_to "Update Project", edit_project_path, class: 'button', method:'get' %>
+
 
 

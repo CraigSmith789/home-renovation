@@ -8,9 +8,16 @@
     <%= f.fields_for :contractor do |c| %>
     <br>
     Please Select a Contractor: <%= collection_select(:project, :contractor_id, Contractor.all, :id, :name, prompt: "Please select your Contractor from this dropdown") %><br>
-    
+    Or, add a new contractor
+    <%= c.label :name %>
+    <%= c.text_field :name%>
+    <%= c.label :email %>
+    <%= c.text_field :email %>
+    <%# <%= f.submit "Submit Contractor", class: 'button', formaction: contractor_path%> 
+    <%# <%= f.submit "Submit Contractor", class: 'button'%> 
+    <%# <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%> 
       <% end %>
-      
+            
       
     <%= f.submit "Save", class: 'button'%> <%= f.submit "Cancel", class: 'button'%>
   <% end %>
