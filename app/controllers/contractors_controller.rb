@@ -34,11 +34,7 @@ class ContractorsController < ApplicationController
   end
 
     def new
-      # TODO: fix this method. It makes no sense
        @contractor = Contractor.new
-       
-       #@contractor.build_project
-   
     end
 
     def edit 

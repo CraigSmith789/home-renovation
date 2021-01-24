@@ -5,7 +5,7 @@
   <%= f.text_field :name %><br>
   <% f.hidden_field :home_id %>
 
-    <%= f.fields_for :contractor do |c| %>
+    <%= f.fields_for :contractors do |c| %>
     <br>
     Please Select a Contractor: <%= collection_select(:project, :contractor_id, Contractor.all, :id, :name, prompt: "Please select your Contractor from this dropdown") %><br>
     Or, add a new contractor
