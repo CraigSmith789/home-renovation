@@ -21,7 +21,7 @@
             <div class="nav-link"><%= button_to "Log in", signin_path, class: 'button', method:'get' %></div>
           <% end %>
           <% if current_user %>
-              <div class="nav-link"><%= button_to "#{current_user.name}'s profile", user_path(current_user), class: 'button', method:'get' %></div>
+              <div class="nav-link"><%= button_to "#{current_user.name}'s Profile", user_path(current_user), class: 'button', method:'get' %></div>
           <div class="nav-link"> <%= button_to "Log Out", session_path, class: 'button', method:'delete' %></div>
           <% end %>
         </div>

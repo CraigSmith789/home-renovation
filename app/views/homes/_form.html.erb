@@ -10,9 +10,11 @@
   <%= f.text_field :beds %><br>
   <%= f.label :baths %>
   <%= f.text_field :baths %>
-  
-  <%= f.submit "Submit Home", class: 'button'%>
-  <%= f.submit "Cancel", class: 'button'%>
-  
+  <br>
+  <br>
+  <div>
+    <%= f.submit "Submit Home", class: 'button'%>
+  </div>
 
 <% end %>
+    <%= button_to "X Cancel", homes_path, :method => :get, class: 'button'%>

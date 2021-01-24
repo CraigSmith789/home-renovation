@@ -1,5 +1,7 @@
+<% if @task && @task.contractor.name%>
+      <h3> Tasks for <%=@contractor.name%></h3>
+<% end%>
 
-<h3> Tasks for <%=@contractor.name%></h3>
 <% @tasks.each do |task| %>
 <div class=".long-table-entry">      
       <%= task.name %>

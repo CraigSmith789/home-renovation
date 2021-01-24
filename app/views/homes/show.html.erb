@@ -1,4 +1,6 @@
 <% if @authorized%>
+  <%= button_to "<  All Homes", homes_path, :method => :get, class: 'button'%>
+  <br>
   <h3><%= @home.name %></h3><br>
 
   <b>Name:</b> <%= @home.name %><br>
@@ -10,9 +12,11 @@
   <div class="button-row">
     <%= button_to "Edit", edit_home_path(@home), :method => :get, class:'button'%>  
     <%= button_to "Delete", home_path(@home), :method => :delete, class:'button' %>
-    <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%>
   </div>
-  <%= button_to "Add Projects to #{@home.name}", new_home_project_path(@home), :method => :get, class:'button'%> 
+  <div class="button-row">
+    <%= button_to "View Projects", home_projects_path(@home), :method => :get, class:'button'%> 
+    <%= button_to "Add Projects to #{@home.name}", new_home_project_path(@home), :method => :get, class:'button'%>
+  </div> 
 <% end%>
 
 <% if !@authorized%>
