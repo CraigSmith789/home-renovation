@@ -2,7 +2,7 @@
 <%= render partial: "layouts/error", locals: {object: @project}  %>
 <%= form_for([@home, @project]) do |f| %>
   <%= f.label "Project Name:" %>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, required: true %><br>
   <% f.hidden_field :home_id %>
 
     <%= f.fields_for :contractors do |c| %>
@@ -10,12 +10,10 @@
     Please Select a Contractor: <%= collection_select(:project, :contractor_id, Contractor.all, :id, :name, prompt: "Please select your Contractor from this dropdown") %><br>
     Or, add a new contractor
     <%= c.label :name %>
-    <%= c.text_field :name%>
+    <%= c.text_field :name, required: true%>
     <%= c.label :email %>
-    <%= c.text_field :email %>
-    <%# <%= f.submit "Submit Contractor", class: 'button', formaction: contractor_path%> 
-    <%# <%= f.submit "Submit Contractor", class: 'button'%> 
-    <%# <%= button_to "Cancel", homes_path, :method => :get, class: 'button'%> 
+    <%= c.text_field :email, required: true %>
+    
       <% end %>
             
       

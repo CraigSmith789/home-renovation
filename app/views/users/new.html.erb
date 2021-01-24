@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, required: true %>
   <%= f.label :password %>
-  <%= f.text_field :password %>
+  <%= f.text_field :password, required: true %>
   <%= f.submit "Create User", class: 'button'%>
 <% end %>
