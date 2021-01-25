@@ -4,18 +4,19 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'session#create' 
   
   resources :contractors
-  resources :tasks
   resources :projects
+  
   resources :users
 
     
-  get '/lead-paint' => 'homes#index', year_built: 'lead_paint_risk', as: :lead_paint_risk
+  
 
   root 'static#home'
   get '/signin', to: 'session#new', as: 'signin'
   post '/session', to: 'session#create', as: 'session'
   delete '/session/', to: 'session#destroy'
-
+  
+  resources :tasks, only: [:new, :create, :show, :delete, :destroy]
   resources :homes, only: [:new, :index, :create, :show]
   resources :homes do
     resources :projects, only: [:new, :index, :create, :show]

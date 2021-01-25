@@ -1,12 +1,10 @@
 class HomesController < ApplicationController
-  #skip_before_action :verified_user, only: [:new, :create]
-  before_action :redirect_if_not_logged_in
+   before_action :redirect_if_not_logged_in
 
   def index
       @user = current_user
       @homes = @user.homes.order_by_date
       
-    
   end
   
 
@@ -60,18 +58,13 @@ class HomesController < ApplicationController
       redirect_to homes_path
     end
 
-    def lead_paint
-      Home.all.lead_paint_risk
-    end
-
-
-
+    
     private
 
     
 
     def home_params
-      params.require(:home).permit(:name, :year_built, :sf, :beds, :baths)
+      params.require(:home).permit(:name, :year_built, :sf, :beds, :baths, :user_id)
     end
 
 end

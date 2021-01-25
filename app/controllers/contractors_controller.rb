@@ -2,7 +2,7 @@ class ContractorsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def index
-    # TODO: this may need to be fixed too
+    
     if params[:project_id]
       @project = Project.find_by(id: params[:project_id])
       if @project.nil?

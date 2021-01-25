@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
   def show
     
     @project = Project.find(params[:id])
-    #@contractor = Contractor.find(params[:contractor_id])
     @contractor = @project.contractor.id
   end
 
@@ -37,8 +36,8 @@ end
     @project.name = params[:project][:name]
 
     # user chose an existing contractor
-    if params[:contractor_id]
-      @project.contractor_id = params[:contractor_id]
+    if params[:project][:contractor_id]
+      @project.contractor_id = params[:project][:contractor_id]
       
     # user chose to create a new contractor
     else
